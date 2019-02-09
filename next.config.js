@@ -10,7 +10,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = withPlugins([
     ...plugin
 ], {
-    name: "githu",
+    name: "github-issue-tracker",
+    alise: "github-issue-tracker",
     serverRuntimeConfig: {
         env: { }
     },

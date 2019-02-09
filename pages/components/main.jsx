@@ -1,10 +1,10 @@
 import Head from "./head";
-import Body from "./body";
+import Tracker from "./tracker";
 
 const Main = () => (
   <>
     <Head />
-    <Body />
+    <Tracker />
   </>
 );
 

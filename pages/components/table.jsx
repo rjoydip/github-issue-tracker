@@ -1,35 +1,29 @@
-import React from 'react';
-
-const TableItems = props => {
-  const { data } = props;
-  return (
-    <>
-      <td>{data.total_issues}</td>
-      <td>{data.within24hrs}</td>
-      <td>{data.within7days}</td>
-      <td>{data.between24hrsTo7days}</td>
-    </>
-  );
-};
+import React from "react";
 
 const Table = props => (
   <table cellPadding="0" cellSpacing="0">
-      <thead className="tbl-header">
-        <tr>
-          <th>Total issues</th>
-          <th>Issues within 24hrs</th>
-          <th>Issues within 7days</th>
-          <th>Issues between 24hrs - 7days</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {props.data.map((item, key) => (
-            <TableItems key={key} data={item} />
-          ))}
-        </tr>
-      </tbody>
-    </table>
+    <thead className="tbl-header">
+      <tr>
+        <th>Total issues</th>
+        <th>Issues within 24hrs</th>
+        <th>Issues within 7days</th>
+        <th>Issues between 24hrs - 7days</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{props.data.totalIssues}</td>
+        <td>{props.data.less7Days}</td>
+        <td>{props.data.less24Hrs}</td>
+        <td>{props.data.more24HrsLess7Days}</td>
+      </tr>
+      <tr>
+        <td colSpan={4}>
+          <b>Note:</b> <i>Counts are showing based on open issues</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 );
 
 export default Table;
