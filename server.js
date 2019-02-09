@@ -2,21 +2,9 @@
 
 // 3rd party modules import
 const fastify = require('fastify')();
-const {
-  Signale
-} = require('signale');
 // application modules import
 const utils = require('./utils');
 const tracker = require('./tracker');
-
-/** 
- * signale instance
- * @description Colorfull and interactive consoler 
- */
-const trackerSignale = new Signale({
-  interactive: true,
-  scope: 'tracker'
-});
 
 /**
  * Tracker handler
@@ -29,15 +17,12 @@ const trackerSignale = new Signale({
 const trackerHandler = async (request, reply) => {
   const repoName = utils.getRepoName(request.body.url);
   try {
-    trackerSignale.await(`[${repoName}] - Fetching result`);
     const result = await tracker.getIssues(repoName);
-    trackerSignale.success(`[${repoName}] - Fetched successfully`);
     reply.status(200).send({
       result,
       message: 'Data fetched successfully'
     });
   } catch (error) {
-    trackerSignale.error(`[${repoName}] - Oops! Got an error`);
     reply.status(403).send(error);
   }
 };

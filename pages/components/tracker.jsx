@@ -47,7 +47,7 @@ const Tracker = ({}) => {
 
   return (
     <>
-      <form className="light" onSubmit={handleSubmit}>
+      <form action="javascript:void(0);" className="light" onSubmit={handleSubmit}>
         <div>
           <input
             type="url"
