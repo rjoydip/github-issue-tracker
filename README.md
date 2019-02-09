@@ -1,6 +1,6 @@
 # github-issue-tracker
 
-A github issue tracker SSR (next + fastify) Application.
+A github issue tracker SSR (next + fastify) application.
 
 ## Installation
 
@@ -59,13 +59,13 @@ $ npm run dev # or yarn dev - Run the development server
     - Active ecosystem.
     - New react features supported here.
     - Good plugins supports.
-- [@octokit]
+- [octokit]
     - Calling Github API easyly.
     - Good plugins supports.
 - [dayjs](https://github.com/iamkun/dayjs#readme)
     - Lightwaight
     - Modern API
-    - It's good alternative of [`Moment.js`](https://momentjs.com/)
+    - It's a good alternative of [`Moment.js`](https://momentjs.com/)
 - [React](https://reactjs.org/)
     - Lot's of advantages
 - [Jest + React testing library]
