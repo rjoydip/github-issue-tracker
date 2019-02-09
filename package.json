@@ -1,0 +1,62 @@
+{
+  "name": "github-issue-tracker",
+  "version": "1.0.0",
+  "description": "A github issue tracker with SSR (next + fastify)",
+  "main": "server.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "standard": {
+    "ignore": [
+      "*.jsx"
+    ]
+  },
+  "scripts": {
+    "build": "next build",
+    "build:prod": "cross-env NODE_ENV=production next build",
+    "serve": "npm run build:prod && cross-env NODE_ENV=production node server.js",
+    "test": "npm run build:prod && standard && cross-env NODE_ENV=production tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjoydip/github-issue-tracker.git"
+  },
+  "keywords": [
+    "fastify",
+    "react",
+    "next",
+    "ssr",
+    "server",
+    "side",
+    "rendering",
+    "github",
+    "issue",
+    "tracker"
+  ],
+  "author": "Joydip Roy - @rjoydip (joydipand@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rjoydip/github-issue-tracker/issues"
+  },
+  "homepage": "https://github.com/rjoydip/github-issue-tracker#readme",
+  "peerDependencies": {
+    "next": "^7.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "standard": "^12.0.1",
+    "tap": "^12.5.2"
+  },
+  "dependencies": {
+    "@octokit/plugin-retry": "^2.1.2",
+    "@octokit/plugin-throttling": "^2.4.0",
+    "@octokit/rest": "^16.15.0",
+    "dayjs": "^1.8.5",
+    "fastify": "^1.14.1",
+    "fastify-nextjs": "^4.0.0",
+    "next": "^7.0.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
+}
