@@ -9,11 +9,14 @@
     ]
   },
   "scripts": {
+    "start": "yarn serve",
     "build": "next build",
     "dev": "npx cross-env NODE_ENV=development node server.js",
     "build:prod": "cross-env NODE_ENV=production next build",
-    "serve": "npm run build:prod && cross-env NODE_ENV=production node server.js",
-    "test": "npm run build:prod && standard && cross-env NODE_ENV=production tap test.js"
+    "serve": "yarn build:prod && cross-env NODE_ENV=production node server.js",
+    "test": "yarn build:prod && standard && cross-env NODE_ENV=production tap test.js",
+    "heroku-prebuild": "yarn",
+    "heroku-postbuild": "yarn build:prod"
   },
   "repository": {
     "type": "git",
