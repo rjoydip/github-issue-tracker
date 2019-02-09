@@ -9,15 +9,14 @@
     ]
   },
   "scripts": {
-    "prestart": "yarn",
-    "start": "yarn serve",
-    "build": "next build",
+    "prestart": "npm install",
+    "start": "npm run serve",
+    "build": "npx next build",
     "dev": "npx cross-env NODE_ENV=development node server.js",
-    "build:prod": "cross-env NODE_ENV=production next build",
-    "serve": "yarn build:prod && cross-env NODE_ENV=production node server.js",
-    "test": "yarn build:prod && standard && cross-env NODE_ENV=production tap test.js",
-    "heroku-prebuild": "yarn",
-    "heroku-postbuild": "yarn build:prod"
+    "build:prod": "npx cross-env NODE_ENV=production next build",
+    "serve": "npm run build:prod && cross-env NODE_ENV=production node server.js",
+    "test": "npm run build:prod && standard && cross-env NODE_ENV=production tap test.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "repository": {
     "type": "git",
@@ -50,6 +49,7 @@
     "cross-env": "^5.2.0",
     "next-compose-plugins": "^2.1.1",
     "nodemon": "^1.18.9",
+    "npx": "^10.2.0",
     "standard": "^12.0.1",
     "tap": "^12.5.2"
   },
