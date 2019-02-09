@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { useForm } from "form-hooks";
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
 
 import Table from './table';
+import utils from '../utils';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 const Tracker = ({}) => {
   const [tableData, setTableData] = useState({
@@ -10,6 +19,8 @@ const Tracker = ({}) => {
     more24HrsLess7Days: 0,
     totalIssues: 0
   });
+  const [showLoader, setLoader] = useState(false);
+
   const {
     errors,
     touched,
@@ -19,10 +30,15 @@ const Tracker = ({}) => {
     isSubmitting
   } = useForm({
     initialValues: {
-      url: "" // "http://github.com/nodejs/node",
+      url: ""
     },
     onSubmit: async ({ url }) => {
+      if (utils.isEmpty(url)) {
+        return;
+      }
+
       const API_BASE_URL = `${window.location.origin}/api`;
+      setLoader(true);
       try {
         const response = await fetch(`${API_BASE_URL}/tracker`, {
           method: "POST",
@@ -32,8 +48,12 @@ const Tracker = ({}) => {
           }
         });
         const data = await response.json();
-        setTableData(data.result);
+        if (Object.keys(data.result).length) {
+          setTableData(data.result);
+        }
+        setLoader(false);
       } catch (error) {
+        setLoader(false);
         console.error(
           "here",
           (error && error.message) || "Something went wrong"
@@ -62,6 +82,15 @@ const Tracker = ({}) => {
           Submit
         </button>
         <div className="error">{touched["url"] && errors["url"]}</div>
+        <div className='loader-container'>
+        <ScaleLoader
+          style={override}
+          sizeUnit={"px"}
+          size={150}
+          color={'#0CACE8'}
+          loading={showLoader}
+        />
+      </div> 
       </form>
       <Table data={tableData}/>
     </>

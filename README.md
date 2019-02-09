@@ -35,6 +35,7 @@ $ npm run dev # or yarn dev - Run the development server
 - UI/UX
 - PWA support.
 - Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support.
+- Next.js SSR caching (`lru-cache`). [Example](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching/server.js#L11)
 - Validation not working
     * :thought_balloon: This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
 - Testing and standardise code quality ([`standard`](https://www.npmjs.com/package/standard)). [`working`]

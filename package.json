@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
+    "babel-plugin-emotion": "^10.0.7",
     "cross-env": "^5.2.0",
     "next-compose-plugins": "^2.1.1",
     "nodemon": "^1.18.9",
@@ -52,6 +53,7 @@
     "tap": "^12.5.2"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.7",
     "@octokit/plugin-retry": "^2.1.2",
     "@octokit/plugin-throttling": "^2.4.0",
     "@octokit/rest": "^16.15.0",
@@ -62,7 +64,8 @@
     "form-hooks": "^0.3.0",
     "next": "^7.0.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "react-spinners": "^0.5.1"
   },
   "browserslist": [
     ">0.2%",

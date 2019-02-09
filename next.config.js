@@ -16,6 +16,7 @@ module.exports = withPlugins([
         env: { }
     },
     publicRuntimeConfig: {
+        staticFolder: '/static',
         isProduction,
         APP_NAME: 'Github Issue Tracker'
     }
