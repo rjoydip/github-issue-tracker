@@ -5,7 +5,7 @@
   "main": "server.js",
   "standard": {
     "ignore": [
-      "*.jsx"
+      "*.json"
     ]
   },
   "scripts": {
@@ -16,6 +16,7 @@
     "build:prod": "npx cross-env NODE_ENV=production next build",
     "serve": "npx cross-env NODE_ENV=production node server.js -p $PORT",
     "lint": "npx standard",
+    "lint:fix": "npx standard --fix",
     "test": "npm run build:prod && cross-env NODE_ENV=production tap test.js",
     "heroku-postbuild": "npm run build:prod",
     "clean": "rimraf .cache .yarn* .next"
@@ -59,6 +60,7 @@
     "@octokit/plugin-retry": "^2.1.2",
     "@octokit/plugin-throttling": "^2.4.0",
     "@octokit/rest": "^16.15.0",
+    "axios": "^0.18.0",
     "dayjs": "^1.8.5",
     "dotenv": "^6.2.0",
     "fastify": "2.0.0-rc.6",
