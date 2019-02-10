@@ -7,9 +7,16 @@ A github issue tracker SSR (next + fastify) application.
 ```bash
 $ git clone https://github.com/rjoydip/github-issue-tracker.git
 $ cd github-issue-tracker
-$ npm i # or yarn
-$ npm run dev # or yarn dev - Run the development server
+$ npm install # or yarn
+$ npm run dev # or yarn dev
+# Note: nodemon and next webpack server both can't work together
+# that's why if anything modify in server side you have to
+# re-run the application again
 ```
+
+## Demo 
+
+- **Glitch hosted** > [github-issue-tracker](https://rjoydip-github-issue-tracker.glitch.me/)
 
 ## Scripts
 
@@ -17,12 +24,14 @@ $ npm run dev # or yarn dev - Run the development server
 - **build:prod**: Next.js production build (`recomended`)
 - **dev**: Running fastify development server.
 - **serve**: Build next.js app with production and running fastify server in product mode.
-- **test**: Test case of the server + frontend. Code standardisation. *`Rigth now this is :x:`*
+- **test**: Test case of the server + frontend. Code standardisation. *`Rigth now this is`* :x:
 
 ## Features
 
+- Server is asynchronus nature.
 - SSR with next.js
-- React hooks.
+- React hooks implementd.
+- JSDoc style code commented [JSDoc](http://usejsdoc.org/index.html)
 - [`@octokit/rest`](https://github.com/octokit/rest.js#readme) used for GitHub REST API call.
 - `octokit plugins`
     - [`plugin-retry`](https://github.com/octokit/plugin-retry.js#readme) It retries request for server 4xx/5xx responses.
@@ -32,10 +41,11 @@ $ npm run dev # or yarn dev - Run the development server
 
 ## Improvement needs
 
-- UI/UX
+- UI/UX improvement
 - PWA support.
+- Benchmarking using [`autocannon`](https://www.npmjs.com/package/autocannon) and diagnoses performance issues using [`node-clinic`](https://clinicjs.org/)
 - Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support.
-- Next.js SSR caching (`lru-cache`). [Example](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching/server.js#L11)
+- Next.js SSR caching (`lru-cache`). [See more](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching)
 - Validation not working
     * :thought_balloon: This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
 - Testing and standardise code quality ([`standard`](https://www.npmjs.com/package/standard)). [`working`]
@@ -69,9 +79,9 @@ $ npm run dev # or yarn dev - Run the development server
     - It's a good alternative of [`Moment.js`](https://momentjs.com/)
 - [React](https://reactjs.org/)
     - Lot's of advantages
-- [Jest + React testing library]
+- Jest + React testing library
     - Why not `enzyme`?
-    > https://github.com/unlock-protocol/unlock/issues/467#issuecomment-435398658
+        > https://github.com/unlock-protocol/unlock/issues/467#issuecomment-435398658
 
 ## License
 

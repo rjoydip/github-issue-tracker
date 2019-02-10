@@ -1,16 +1,10 @@
 import { useState } from "react";
 import { useForm } from "form-hooks";
-import { css } from '@emotion/core';
-import { ScaleLoader } from 'react-spinners';
+import { css } from "@emotion/core";
+import { ScaleLoader } from "react-spinners";
 
-import Table from './table';
-import utils from '../utils';
-
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-`;
+import Table from "./table";
+import utils from "../utils";
 
 const Tracker = ({}) => {
   const [tableData, setTableData] = useState({
@@ -18,9 +12,9 @@ const Tracker = ({}) => {
     less24Hrs: 0,
     more24HrsLess7Days: 0,
     totalIssues: 0
-  });
-  const [showLoader, setLoader] = useState(false);
-
+  }); // table data hook
+  const [showLoader, setLoader] = useState(false); // loader hook
+  const [errorMsg, setErrorMsg] = useState({ show: false, msg: "" }); // error hook
   const {
     errors,
     touched,
@@ -29,18 +23,15 @@ const Tracker = ({}) => {
     handleChange,
     isSubmitting
   } = useForm({
-    initialValues: {
-      url: ""
-    },
+    initialValues: { url: "" },
     onSubmit: async ({ url }) => {
       if (utils.isEmpty(url)) {
+        setErrorMsg({ show: true, msg: "Url can't be empty" });
         return;
       }
-
-      const API_BASE_URL = `${window.location.origin}/api`;
       setLoader(true);
       try {
-        const response = await fetch(`${API_BASE_URL}/tracker`, {
+        const response = await fetch(`${window.location.origin}/api/tracker`, {
           method: "POST",
           body: JSON.stringify({ url }),
           headers: {
@@ -48,26 +39,36 @@ const Tracker = ({}) => {
           }
         });
         const data = await response.json();
-        if (Object.keys(data.result).length) {
-          setTableData(data.result);
+        if (!response.ok) {
+          throw new Error(data.message);
+        } else {
+          if (Object.keys(data.result).length) {
+            setTableData(data.result);
+          } else {
+            setErrorMsg({ show: true, msg: "No data found" });
+          }
+          setLoader(false);
         }
-        setLoader(false);
       } catch (error) {
         setLoader(false);
-        console.error(
-          "here",
-          (error && error.message) || "Something went wrong"
-        );
+        setErrorMsg({
+          show: true,
+          msg: (error && error.message) || "Something went wrong"
+        });
       }
     },
     validate: values => ({
-      ...(!values.url === "" ? { name: "Requires a url" } : {})
+      ...(!values.url === "" ? { name: "Requires a url" } : {}) // right now not working it's an issue of the module
     })
   });
 
   return (
     <>
-      <form action="javascript:void(0);" className="light" onSubmit={handleSubmit}>
+      <form
+        action="javascript:void(0);"
+        className="light"
+        onSubmit={handleSubmit}
+      >
         <div>
           <input
             type="url"
@@ -82,17 +83,26 @@ const Tracker = ({}) => {
           Submit
         </button>
         <div className="error">{touched["url"] && errors["url"]}</div>
-        <div className='loader-container'>
-        <ScaleLoader
-          style={override}
-          sizeUnit={"px"}
-          size={150}
-          color={'#0CACE8'}
-          loading={showLoader}
-        />
-      </div> 
       </form>
-      <Table data={tableData}/>
+      <div>
+        <div className="loader-container">
+          <ScaleLoader
+            style={css`
+              display: block;
+              margin: 0 auto;
+              border-color: red;
+            `}
+            sizeUnit={"px"}
+            size={150}
+            color={"#0CACE8"}
+            loading={showLoader}
+          />
+        </div>
+        <div className="error" style={{ textAlign: "center" }}>
+          {errorMsg.msg}
+        </div>
+      </div>
+      <Table data={tableData} />
     </>
   );
 };

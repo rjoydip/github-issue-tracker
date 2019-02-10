@@ -15,13 +15,12 @@ body {
 
 .error {
   color: #ef4a4a;
-  margin: 7px 0;
 }
 
 /* SEARCH AND CREDETS */
 .light {
   margin: 0 auto;
-  padding: 25px;
+  padding: 15px;
   width: 50%;
 }
 
@@ -48,8 +47,6 @@ button[type="submit"] {
 /* TABEL SECTION */
 table {
   width: 100%;
-  table-layout: fixed;
-  margin-top: 50px;
   padding: 10px;
 }
 
