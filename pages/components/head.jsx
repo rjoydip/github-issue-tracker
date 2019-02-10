@@ -8,14 +8,14 @@ export default ({ children }) => {
       <Head>
         <title>{appName}</title>
         <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-          key="viewport"
+          name='viewport'
+          content='initial-scale=1.0, width=device-width'
+          key='viewport'
         />
       </Head>
       <Head>
         <body>
-          <div className="header">
+          <div className='header'>
             <h1>{appName}</h1>
           </div>
           {children}

@@ -1,5 +1,8 @@
 # github-issue-tracker
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 A github issue tracker SSR (next + fastify) application.
 
 ## Installation

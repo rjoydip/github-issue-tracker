@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Table = props => (
-  <table cellPadding="0" cellSpacing="0">
-    <thead className="tbl-header">
+  <table cellPadding='0' cellSpacing='0'>
+    <thead className='tbl-header'>
       <tr>
         <th>Total issues</th>
         <th>Issues within 24hrs</th>

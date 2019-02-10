@@ -23,6 +23,5 @@ test('should return an html document', t => {
       t.equal(res.headers['content-type'], 'text/html; charset=utf-8')
     }
   )
-
   fastify.close()
 })

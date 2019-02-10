@@ -75,7 +75,6 @@ fastify.post(
  * Run the server!
  * @description Spinup the server with async way
  */
-
 const start = async () => {
   const PORT = process.env.PORT || 3000
   try {

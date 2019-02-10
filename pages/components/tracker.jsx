@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState } from 'react'
 import { useForm } from 'form-hooks'
 import { css } from '@emotion/core'
@@ -36,16 +37,15 @@ const Tracker = () => {
       }
       setLoader(true)
       try {
-        // eslint-disable-next-line no-undef
-        const response = await fetch(`${window.location.origin}/api/tracker`, {
+        const response = await axios(`${window.location.origin}/api/tracker`, {
           method: 'POST',
-          body: JSON.stringify({ url }),
+          data: JSON.stringify({ url }),
           headers: {
             'content-type': 'application/json'
           }
         })
-        const data = await response.json()
-        if (!response.ok) {
+        const {data} = await response
+        if (response.status !== 200) {
           throw new Error(data.message)
         } else {
           if (Object.keys(data.result).length) {
@@ -74,27 +74,27 @@ const Tracker = () => {
   return (
     <>
       <form
-        action="javascript:void(0);"
-        className="light"
+        action='javascript:void(0);'
+        className='light'
         onSubmit={handleSubmit}
       >
         <div>
           <input
-            type="url"
-            name="url"
-            className="inp"
+            type='url'
+            name='url'
+            className='inp'
             value={values.url}
             onChange={handleChange}
-            placeholder="Enter github repo link"
+            placeholder='Enter github repo link'
           />
         </div>
-        <button type="submit" disabled={isSubmitting}>
+        <button type='submit' disabled={isSubmitting}>
           Submit
         </button>
         <div className="error">{touched['url'] && errors['url']}</div>
       </form>
       <div>
-        <div className="loader-container">
+        <div className='loader-container'>
           <ScaleLoader
             style={css`
               display: block;
