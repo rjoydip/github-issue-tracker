@@ -7,12 +7,13 @@ import Table from "./table";
 import utils from "../utils";
 
 const Tracker = ({}) => {
-  const [tableData, setTableData] = useState({
+  const defaultValue = {
     less7Days: 0,
     less24Hrs: 0,
     more24HrsLess7Days: 0,
     totalIssues: 0
-  }); // table data hook
+  };
+  const [tableData, setTableData] = useState(defaultValue); // table data hook
   const [showLoader, setLoader] = useState(false); // loader hook
   const [errorMsg, setErrorMsg] = useState({ show: false, msg: "" }); // error hook
   const {
@@ -25,6 +26,10 @@ const Tracker = ({}) => {
   } = useForm({
     initialValues: { url: "" },
     onSubmit: async ({ url }) => {
+      setErrorMsg({
+        show: false,
+        msg: ''
+      });
       if (utils.isEmpty(url)) {
         setErrorMsg({ show: true, msg: "Url can't be empty" });
         return;
@@ -45,11 +50,14 @@ const Tracker = ({}) => {
           if (Object.keys(data.result).length) {
             setTableData(data.result);
           } else {
+            setTableData(defaultValue);
             setErrorMsg({ show: true, msg: "No data found" });
           }
           setLoader(false);
         }
       } catch (error) {
+        values.url = '';
+        setTableData(defaultValue);
         setLoader(false);
         setErrorMsg({
           show: true,

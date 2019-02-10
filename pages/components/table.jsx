@@ -19,7 +19,7 @@ const Table = props => (
       </tr>
       <tr>
         <td colSpan={4}>
-          <b>Note:</b> <i>Counts are showing based on open issues</i>
+          <b>Note:</b> <i>Counts are shown based on open issues</i>
         </td>
       </tr>
     </tbody>
