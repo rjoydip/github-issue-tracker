@@ -34,7 +34,7 @@ Rename `.env.example` to `.env` and replace <TOKEN> with original one. To get ne
 - **lint:fix**: Automatic lint issues fix (*Better than to check every file manually*).
 - **serve**: Build next.js app with production and running fastify server in product mode.
 - **test**: Test case of the server + frontend. Code standardisation. *`Rigth now this is`* :x:
-- **benchmark**: Benchmarking server preformance measure.
+- **benchmark**: Benchmarking server preformance.
 
 ## Features
 
