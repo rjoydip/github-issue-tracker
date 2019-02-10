@@ -17,6 +17,7 @@ $ npm run dev # or yarn dev
 ## Demo 
 
 - **Glitch hosted** > [github-issue-tracker](https://rjoydip-github-issue-tracker.glitch.me/)
+- **Other hosting** > Think later
 
 ## Scripts
 
@@ -61,8 +62,8 @@ $ npm run dev # or yarn dev
 ## Why these modules has been used?
 
 - [Fastify](https://www.fastify.io/) 
-    - It's faster and low overhead framework. 
-    - Fastify plugin system are good.
+    - It's faster :dash: and low overhead framework. 
+    - Fastify plugin system are good. :+1:
     - Core teams members and contributors are active.
     - Ecosystem/Plugins are good.
 - [Next.js](https://nextjs.org/docs)
@@ -79,9 +80,17 @@ $ npm run dev # or yarn dev
     - It's a good alternative of [`Moment.js`](https://momentjs.com/)
 - [React](https://reactjs.org/)
     - Lot's of advantages
-- Jest + React testing library
-    - Why not `enzyme`?
-        > https://github.com/unlock-protocol/unlock/issues/467#issuecomment-435398658
+- [Jest](https://jestjs.io/)
+- [React testing library](https://testing-library.com/react)
+
+## FAQ :question:
+
+- Why `Glitch`?
+
+It's is fully docker container based. For each application I get a fresh linux environment. Intregrated terminal where I could run my usefull linux command. By default git and npm installed. Inline editor and file explorar tree. `Glitch` is faster.
+
+- Why not `enzyme`?
+    > https://github.com/unlock-protocol/unlock/issues/467#issuecomment-435398658
 
 ## License
 
