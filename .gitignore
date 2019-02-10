@@ -55,7 +55,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# commented for glitch
+#.env
 
 # mac files
 .DS_Store

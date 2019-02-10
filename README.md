@@ -14,6 +14,10 @@ $ npm run dev # or yarn dev
 # re-run the application again
 ```
 
+## Next steps
+
+Remove the github access token value from `.env`. To get new access token folow the link [creating-a-personal-access-token-for-the-command-lin](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or check out my [express-fastify-github-oauth](https://express-fastify-github-oauth.glitch.me/).
+
 ## Demo 
 
 - **Glitch hosted** > [github-issue-tracker](https://rjoydip-github-issue-tracker.glitch.me/)
