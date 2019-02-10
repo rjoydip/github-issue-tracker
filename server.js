@@ -39,7 +39,7 @@ fastify
 const trackerHandler = async (request, reply) => {
   const repoName = utils.getRepoName(request.body.url);
   if (utils.isEmpty(repoName)) {
-    reply.status(500).send(new Error('Invalid url'));
+    reply.status(500).send(new Error('Please enter a valid github repo url'));
   } else {
     try {
       const result = await tracker.getIssues(repoName);
