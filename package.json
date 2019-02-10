@@ -19,7 +19,8 @@
     "lint:fix": "npx eslint --ext .js,.jsx . --fix",
     "test": "npm run build:prod && cross-env NODE_ENV=production tap test.js",
     "heroku-postbuild": "npm run build:prod",
-    "clean": "rimraf .cache .yarn* .next"
+    "clean": "rimraf .cache .yarn* .next",
+    "benchmark": "npx autocannon -c 100 -d 10 localhost:3000"
   },
   "repository": {
     "type": "git",

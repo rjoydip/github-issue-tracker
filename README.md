@@ -34,6 +34,7 @@ Rename `.env.example` to `.env` and replace <TOKEN> with original one. To get ne
 - **lint:fix**: Automatic lint issues fix (*Better than to check every file manually*).
 - **serve**: Build next.js app with production and running fastify server in product mode.
 - **test**: Test case of the server + frontend. Code standardisation. *`Rigth now this is`* :x:
+- **benchmark**: Benchmarking server preformance measure.
 
 ## Features
 
@@ -50,15 +51,13 @@ Rename `.env.example` to `.env` and replace <TOKEN> with original one. To get ne
 - Code quality ([`eslint`](https://eslint.org/)).
 - Code format [Prettier](https://prettier.io/).
 - Prevent Bad commit, push using [husky](https://github.com/typicode/husky) and running linter before that for enforce code style using [lint-staged](https://www.npmjs.com/package/lint-staged).
+- Benchmark server using [`autocannon`](https://www.npmjs.com/package/autocannon) for measuring preformance.
 
 ## Improvement needs
 
-- PWA support.
-- Benchmarking using [`autocannon`](https://www.npmjs.com/package/autocannon) and diagnoses performance issues using [`node-clinic`](https://clinicjs.org/)
+- Enable diagnoses performance issues using [`node-clinic`](https://clinicjs.org/).
 - Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support for lazyly load component.
 - Next.js SSR caching (`lru-cache`). [See more](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching)
-- Validation not working
-    * This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
 - Test server and client code.
 - Github rest API taking too much time to paginate and response back.
     * Cache the results with [`Redis`](https://redis.io/) or if found any other faster caching module.
@@ -92,6 +91,34 @@ Rename `.env.example` to `.env` and replace <TOKEN> with original one. To get ne
     - Code format
 - [Jest](https://jestjs.io/) - Not used yet
 - [React testing library](https://testing-library.com/react) - Not used yet
+
+## Banchmark
+
+Benchmarking report will be different in your system.
+
+```sh
+$ npx autocannon -c 100 -d 10 localhost:3000
+Running 10s test @ http://localhost:3000
+100 connections
+
+┌─────────┬────────┬────────┬────────┬─────────┬───────────┬───────────┬────────────┐
+│ Stat    │ 2.5%   │ 50%    │ 97.5%  │ 99%     │ Avg       │ Stdev     │ Max        │
+├─────────┼────────┼────────┼────────┼─────────┼───────────┼───────────┼────────────┤
+│ Latency │ 124 ms │ 141 ms │ 905 ms │ 1581 ms │ 201.65 ms │ 229.15 ms │ 1590.15 ms │
+└─────────┴────────┴────────┴────────┴─────────┴───────────┴───────────┴────────────┘
+┌───────────┬─────┬──────┬─────────┬────────┬─────────┬────────┬────────┐
+│ Stat      │ 1%  │ 2.5% │ 50%     │ 97.5%  │ Avg     │ Stdev  │ Min    │
+├───────────┼─────┼──────┼─────────┼────────┼─────────┼────────┼────────┤
+│ Req/Sec   │ 0   │ 0    │ 636     │ 700    │ 495.4   │ 257.32 │ 100    │
+├───────────┼─────┼──────┼─────────┼────────┼─────────┼────────┼────────┤
+│ Bytes/Sec │ 0 B │ 0 B  │ 1.64 MB │ 1.8 MB │ 1.27 MB │ 662 kB │ 257 kB │
+└───────────┴─────┴──────┴─────────┴────────┴─────────┴────────┴────────┘
+
+Req/Bytes counts sampled once per second.
+
+5k requests in 10.07s, 12.7 MB read
+Done in 10.47s.
+```
 
 ## FAQ
 
