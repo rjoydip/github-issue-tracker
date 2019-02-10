@@ -2,12 +2,15 @@
 
 // 3rd party modules import
 const fastify = require('fastify')();
-const {
-  join
-} = require('path');
 // application modules import
 const utils = require('./utils');
 const tracker = require('./tracker');
+
+/**
+ * Attaching middleware
+ * @todo
+ * @memberof fastify
+ */
 
 /**
  * Registering fastify nextjs plugin
@@ -15,10 +18,6 @@ const tracker = require('./tracker');
  * @memberof fastify
  */
 fastify
-  .register(require('fastify-static'), {
-    root: join(__dirname, 'static'),
-    prefix: '/', // optional: default '/'
-  })
   .register(require('fastify-nextjs'), {
     dev: process.env.NODE_ENV || false
   })
