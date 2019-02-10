@@ -2,7 +2,6 @@
 
 // 3rd party modules import
 const fastify = require('fastify')();
-const cluster = require('cluster');
 const {
   join
 } = require('path');
@@ -70,25 +69,12 @@ fastify.post('/api/tracker', {
  */
 (async () => {
   const PORT = process.env.PORT || 3000;
-  const numCPUs = require('os').cpus().length;
-  // support clustering for cloud environment
-  if (utils.isProd && cluster.isMaster) {
-    console.log(`Node cluster master ${process.pid} is running`);
-    // Fork workers.
-    for (let i = 0; i < numCPUs; i++) {
-      cluster.fork();
-    }
-    cluster.on('exit', (worker, code, signal) => {
-      console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
-    });
-  } else {
-    try {
-      // waithing for fastify app ready stage before start the server
-      await fastify.ready(); 
-      await fastify.listen(PORT);
-    } catch (err) {
-      fastify.log.error(err);
-      process.exit(1);
-    }
+  try {
+    // waithing for fastify app ready stage before start the server
+    await fastify.ready(); 
+    await fastify.listen(PORT);
+  } catch (err) {
+    fastify.log.error(err);
+    process.exit(1);
   }
 })();
