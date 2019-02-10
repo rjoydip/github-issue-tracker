@@ -37,8 +37,12 @@ exports = module.exports = {
   isProd,
   isEmpty,
   getRepoName,
-  since24Hrs: dayjs().subtract(1, 'day').toISOString(),
-  since7Days: dayjs().subtract(7, 'day').toISOString(),
+  since24Hrs: dayjs()
+    .subtract(1, 'day')
+    .toISOString(),
+  since7Days: dayjs()
+    .subtract(7, 'day')
+    .toISOString(),
   isAfter: (str1, str2) => dayjs(str1).isAfter(dayjs(str2)),
   isBefore: (str1, str2) => dayjs(str1).isBefore(dayjs(str2))
 }

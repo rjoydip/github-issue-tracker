@@ -91,7 +91,7 @@ const Tracker = () => {
         <button type='submit' disabled={isSubmitting}>
           Submit
         </button>
-        <div className='error'>{touched['url'] && errors['url']}</div>
+        <div className="error">{touched['url'] && errors['url']}</div>
       </form>
       <div>
         <div className='loader-container'>
@@ -107,7 +107,7 @@ const Tracker = () => {
             loading={showLoader}
           />
         </div>
-        <div className='error' style={{ textAlign: 'center' }}>
+        <div className="error" style={{ textAlign: 'center' }}>
           {errorMsg.msg}
         </div>
       </div>

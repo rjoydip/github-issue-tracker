@@ -1,9 +1,7 @@
 'use strict'
 
 // core modules import
-const {
-  resolve
-} = require('path')
+const { resolve } = require('path')
 // 3rd party modules import
 const dotenv = require('dotenv')
 const Octokit = require('@octokit/rest')
@@ -19,19 +17,27 @@ Octokit.plugin(
 const config = dotenv.config({ path: resolve(process.cwd(), '.env') }).parsed
 // octokit instance
 const octokit = new Octokit({
-  auth: `token ${process.env.GITHUB_ACCESS_TOKEN || config.GITHUB_ACCESS_TOKEN}`,
+  auth: `token ${process.env.GITHUB_ACCESS_TOKEN ||
+    config.GITHUB_ACCESS_TOKEN}`,
   throttle: {
     onRateLimit: (retryAfter, options) => {
-      if (!utils.isProd) octokit.log.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
+      if (!utils.isProd)
+        octokit.log.warn(
+          `Request quota exhausted for request ${options.method} ${options.url}`
+        )
       if (options.request.retryCount === 0) {
         // only retries once
-        if (!utils.isProd) octokit.log.warn(`Retrying after ${retryAfter} seconds!`)
+        if (!utils.isProd)
+          octokit.log.warn(`Retrying after ${retryAfter} seconds!`)
         return true
       }
     },
     onAbuseLimit: (_, options) => {
       // does not retry, only logs a warning
-      if (!utils.isProd) octokit.log.warn(`Abuse detected for request ${options.method} ${options.url}`)
+      if (!utils.isProd)
+        octokit.log.warn(
+          `Abuse detected for request ${options.method} ${options.url}`
+        )
     }
   }
 })
@@ -63,14 +69,20 @@ const getIssues = async (repoStr = '') => {
     })
     try {
       const issuesList = await octokit.paginate(options)
-      const totalIssues = issuesList.filter(issue => utils.isUndefined(issue.pull_request))
-      const less24HrsIssues = totalIssues.filter(issue => utils.isAfter(issue.created_at, utils.since24Hrs)).length
-      const less7DaysIssues = totalIssues.filter(issue => utils.isAfter(issue.created_at, utils.since7Days)).length
+      const totalIssues = issuesList.filter(issue =>
+        utils.isUndefined(issue.pull_request)
+      )
+      const less24HrsIssues = totalIssues.filter(issue =>
+        utils.isAfter(issue.created_at, utils.since24Hrs)
+      ).length
+      const less7DaysIssues = totalIssues.filter(issue =>
+        utils.isAfter(issue.created_at, utils.since7Days)
+      ).length
       return {
         totalIssues: totalIssues.length,
         less24Hrs: less24HrsIssues,
         less7Days: less7DaysIssues,
-        more24HrsLess7Days: (less7DaysIssues - less24HrsIssues)
+        more24HrsLess7Days: less7DaysIssues - less24HrsIssues
       }
     } catch (e) {
       return new Error(e)

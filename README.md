@@ -30,6 +30,8 @@ Remove the github access token value from `.env`. To get new access token folow 
 - **build**: Next.js build
 - **build:prod**: Next.js production build (`recomended`)
 - **dev**: Running fastify development server.
+- **lint**: Lint check server and react code.
+- **lint:fix**: Automatic lint issues fix (*Better than to check every file manually*).
 - **serve**: Build next.js app with production and running fastify server in product mode.
 - **test**: Test case of the server + frontend. Code standardisation. *`Rigth now this is`* :x:
 

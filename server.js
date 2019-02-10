@@ -63,15 +63,19 @@ const trackerHandler = async (request, reply) => {
  * @memberof fastify
  * @todo Add request and response validate {@link https://www.fastify.io/docs/latest/Validation-and-Serialization/}
  */
-fastify.post('/api/tracker', {
-  schema: {}
-}, trackerHandler);
+fastify.post(
+  '/api/tracker',
+  {
+    schema: {}
+  },
+  trackerHandler
+)
 
 /**
  * Run the server!
  * @description Spinup the server with async way
  */
-(async () => {
+const start = async () => {
   const PORT = process.env.PORT || 3000
   try {
     // waithing for fastify app ready stage before start the server
@@ -81,4 +85,6 @@ fastify.post('/api/tracker', {
     fastify.log.error(err)
     process.exit(1)
   }
-})()
+}
+
+start()
