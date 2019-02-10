@@ -21,7 +21,6 @@ Remove the github access token value from `.env`. To get new access token folow 
 ## Demo 
 
 - **Glitch hosted** > [github-issue-tracker](https://rjoydip-github-issue-tracker.glitch.me/)
-- **Other hosting** > Think later
 
 ## Scripts
 
