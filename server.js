@@ -23,7 +23,7 @@ fastify
     dev: process.env.NODE_ENV || false
   })
   .after(() => {
-    fastify.next('*', (app, req, reply) => {
+    fastify.next('/', (app, req, reply) => {
       app.render(req.raw, reply.res, '/app', req.query, {});
     });
   });
