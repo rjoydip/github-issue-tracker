@@ -71,7 +71,7 @@ $ npm run dev # or yarn dev
     - Active ecosystem.
     - New react features supported here.
     - Good plugins supports.
-- [octokit]
+- [octokit](#)
     - Calling Github API easyly.
     - Good plugins supports.
 - [dayjs](https://github.com/iamkun/dayjs#readme)
@@ -80,8 +80,8 @@ $ npm run dev # or yarn dev
     - It's a good alternative of [`Moment.js`](https://momentjs.com/)
 - [React](https://reactjs.org/)
     - Lot's of advantages
-- [Jest](https://jestjs.io/)
-- [React testing library](https://testing-library.com/react)
+- [Jest](https://jestjs.io/) - Not used yet
+- [React testing library](https://testing-library.com/react) - Not used yet
 
 ## FAQ :question:
 
