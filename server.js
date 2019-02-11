@@ -1,5 +1,7 @@
 'use strict';
 
+// core modules
+const { join } = require('path');
 // 3rd party modules import
 const fastify = require('fastify')();
 // application modules import
@@ -18,6 +20,10 @@ const tracker = require('./tracker');
  * @memberof fastify
  */
 fastify
+  .register(require('fastify-static'), {
+    root: join(__dirname, 'static'),
+    prefix: '/', // optional: default '/'
+  })
   .register(require('fastify-nextjs'), {
     dev: process.env.NODE_ENV || false
   })
@@ -70,7 +76,7 @@ fastify.post('/api/tracker', {
   const PORT = process.env.PORT || 3000;
   try {
     // waithing for fastify app ready stage before start the server
-    await fastify.ready(); 
+    await fastify.ready();
     await fastify.listen(PORT);
   } catch (err) {
     fastify.log.error(err);
