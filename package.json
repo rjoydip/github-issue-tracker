@@ -15,7 +15,8 @@
     "dev": "npx cross-env NODE_ENV=development node server.js -p $PORT",
     "build:prod": "npx cross-env NODE_ENV=production next build",
     "serve": "npx cross-env NODE_ENV=production node server.js -p $PORT",
-    "test": "npm run build:prod && standard && cross-env NODE_ENV=production tap test.js",
+    "lint": "npx standard",
+    "test": "npm run build:prod && cross-env NODE_ENV=production tap test.js",
     "heroku-postbuild": "npm run build:prod",
     "clean": "rimraf .cache .yarn* .next"
   },
