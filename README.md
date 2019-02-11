@@ -1,5 +1,6 @@
 # github-issue-tracker
 
+[![Build Status](https://travis-ci.org/rjoydip/github-issue-tracker.svg?branch=master)](https://travis-ci.org/rjoydip/react-ts-starter)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 

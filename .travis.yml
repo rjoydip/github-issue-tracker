@@ -5,6 +5,20 @@ node_js:
   - "10"
   - "8"
 
+install:
+  npm i -g yarn
+
+before_script:
+  - yarn
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - yarn lint
+  
 notifications:
   email:
     on_success: never
