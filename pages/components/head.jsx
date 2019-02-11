@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { config } from "../utils";
+import Head from 'next/head'
+import { config } from '../utils'
 
 export default ({ children }) => {
-  const appName = config("APP_NAME");
+  const appName = config('APP_NAME')
   return (
     <>
       <Head>
@@ -22,5 +22,5 @@ export default ({ children }) => {
         </body>
       </Head>
     </>
-  );
-};
+  )
+}

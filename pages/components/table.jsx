@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Table = props => (
   <table cellPadding="0" cellSpacing="0">
@@ -24,6 +24,6 @@ const Table = props => (
       </tr>
     </tbody>
   </table>
-);
+)
 
-export default Table;
+export default Table
