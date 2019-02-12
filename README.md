@@ -51,7 +51,7 @@ Remove the github access token value from `.env`. To get new access token folow 
 
 ## Improvement needs
 
-- Code quality ([`eslint`](https://eslint.org/)) :white_check_mark
+- Code quality ([`eslint`](https://eslint.org/)) :white_check_mark:
 - Code format [Prettier](https://prettier.io/) :white_check_mark:
 - UI/UX improvement 
 - PWA support.
