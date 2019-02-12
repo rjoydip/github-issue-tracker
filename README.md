@@ -78,7 +78,7 @@ Remove the github access token value from `.env`. To get new access token folow 
     - Core teams members and contributors are active.
     - Ecosystem/Plugins are good.
 - [Next.js](https://nextjs.org/docs)
-    - SSR support and lot's are good things are.
+    - SSR support and lot's of usefull feature are there.
     - Active ecosystem.
     - New react features supported here.
     - Good plugins supports.
