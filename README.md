@@ -51,21 +51,23 @@ Remove the github access token value from `.env`. To get new access token folow 
 
 ## Improvement needs
 
-- UI/UX improvement
+- Code quality ([`eslint`](https://eslint.org/)) :white_check_mark
+- Code format [Prettier](https://prettier.io/) :white_check_mark:
+- UI/UX improvement 
 - PWA support.
 - Benchmarking using [`autocannon`](https://www.npmjs.com/package/autocannon) and diagnoses performance issues using [`node-clinic`](https://clinicjs.org/)
 - Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support.
 - Next.js SSR caching (`lru-cache`). [See more](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching)
 - Validation not working
     * :thought_balloon: This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
-- Testing and standardise code quality ([`standard`](https://www.npmjs.com/package/standard)). [`working`]
+- Testing required [`working`]:
 - Github rest API taking too much time to paginate and response back.
     * :thought_balloon: Cache the results with [`Redis`](https://redis.io/) or if found any other faster caching module.
     * :thought_balloon: Thinking better to use [`GraphQL`](https://developer.github.com/v4/).
     * :thought_balloon: Try with the `Autopaginate` options. [Issue](https://github.com/octokit/rest.js/issues/688)
 - Validate request data and response output with fastify.
 - Better to host in `AWS`.
-- CLI application needs. Right not tracker are in seperate file.
+- CLI application needs.
 - Replace `tap` testing modules with `Jest + React testing library`.
 
 ## Why these modules has been used?
@@ -89,10 +91,14 @@ Remove the github access token value from `.env`. To get new access token folow 
     - It's a good alternative of [`Moment.js`](https://momentjs.com/)
 - [React](https://reactjs.org/)
     - Lot's of advantages
+- [Eslint](https://eslint.org)
+    - Maintaining code quality
+- [Prettier](https://prettier.io/)
+    - Code format
 - [Jest](https://jestjs.io/) - Not used yet
 - [React testing library](https://testing-library.com/react) - Not used yet
 
-## FAQ :question:
+## FAQ
 
 - Why `Glitch`?
 
