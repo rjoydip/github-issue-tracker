@@ -59,7 +59,7 @@ Remove the github access token value from `.env`. To get new access token folow 
 - Next.js SSR caching (`lru-cache`). [See more](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching)
 - Validation not working
     * This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
-- Testing required [`working`]:
+- Test server and client code.
 - Github rest API taking too much time to paginate and response back.
     * Cache the results with [`Redis`](https://redis.io/) or if found any other faster caching module.
 - Validate request data and response output with fastify.
