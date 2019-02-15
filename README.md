@@ -48,33 +48,28 @@ Remove the github access token value from `.env`. To get new access token folow 
     - [plugin-throttling](https://github.com/octokit/plugin-throttling.js#readme) Used for the purpose of [Best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/)
 - [`fastify-nextjs`](https://github.com/fastify/fastify-nextjs#readme) plugin for next.js (SSR) with Fastify.
 - [`dayjs`](https://github.com/iamkun/dayjs#readme) Fast 2kB alternative to Moment.js with the same modern API
+- Code quality ([`eslint`](https://eslint.org/))
+- Code format [Prettier](https://prettier.io/)
 
 ## Improvement needs
 
-- Code quality ([`eslint`](https://eslint.org/)) :white_check_mark:
-- Code format [Prettier](https://prettier.io/) :white_check_mark:
-- UI/UX improvement 
 - PWA support.
 - Benchmarking using [`autocannon`](https://www.npmjs.com/package/autocannon) and diagnoses performance issues using [`node-clinic`](https://clinicjs.org/)
-- Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support.
+- Enable [`dynamic`](https://nextjs.org/docs/#dynamic-import) import support for lazyly load component.
 - Next.js SSR caching (`lru-cache`). [See more](https://github.com/zeit/next.js/blob/canary/examples/ssr-caching)
 - Validation not working
-    * :thought_balloon: This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
+    * This is the issue of [form-hooks](https://github.com/BenMagyar/form-hooks). I will take a look in future. Right now I will ticket an issue after making a example. Later on I will think about the PR if needs.
 - Testing required [`working`]:
 - Github rest API taking too much time to paginate and response back.
-    * :thought_balloon: Cache the results with [`Redis`](https://redis.io/) or if found any other faster caching module.
-    * :thought_balloon: Thinking better to use [`GraphQL`](https://developer.github.com/v4/).
-    * :thought_balloon: Try with the `Autopaginate` options. [Issue](https://github.com/octokit/rest.js/issues/688)
+    * Cache the results with [`Redis`](https://redis.io/) or if found any other faster caching module.
 - Validate request data and response output with fastify.
-- Better to host in `AWS`.
-- CLI application needs.
 - Replace `tap` testing modules with `Jest + React testing library`.
 
 ## Why these modules has been used?
 
 - [Fastify](https://www.fastify.io/) 
     - It's faster :dash: and low overhead framework. 
-    - Fastify plugin system are good. :+1:
+    - Fastify plugin system are good.
     - Core teams members and contributors are active.
     - Ecosystem/Plugins are good.
 - [Next.js](https://nextjs.org/docs)
