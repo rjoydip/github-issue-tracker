@@ -68,7 +68,7 @@ Remove the github access token value from `.env`. To get new access token folow 
 ## Why these modules has been used?
 
 - [Fastify](https://www.fastify.io/) 
-    - It's faster :dash: and low overhead framework. 
+    - It's faster and low overhead framework. 
     - Fastify plugin system are good.
     - Core teams members and contributors are active.
     - Ecosystem/Plugins are good.
