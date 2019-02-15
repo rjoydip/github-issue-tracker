@@ -13,14 +13,13 @@ $ git clone https://github.com/rjoydip/github-issue-tracker.git
 $ cd github-issue-tracker
 $ npm install # or yarn
 $ npm run dev # or yarn dev
-# Note: nodemon and next webpack server both can't work together
-# that's why if anything modify in server side you have to
-# re-run the application again
+# Note: nodemon and next webpack server both can't work together that's 
+# why if anything modify in server side you have to re-run the application again
 ```
 
 ## Next steps
 
-Remove the github access token value from `.env`. To get new access token folow the link [creating-a-personal-access-token-for-the-command-lin](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or check out my [express-fastify-github-oauth](https://express-fastify-github-oauth.glitch.me/).
+Rename `.env.example` to `.env` and replace <TOKEN> with original one. To get new access token folow the link [creating-a-personal-access-token-for-the-command-lin](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or check out my [express-fastify-github-oauth](https://express-fastify-github-oauth.glitch.me/).
 
 ## Demo 
 
@@ -48,8 +47,9 @@ Remove the github access token value from `.env`. To get new access token folow 
     - [plugin-throttling](https://github.com/octokit/plugin-throttling.js#readme) Used for the purpose of [Best practices for integrators](https://developer.github.com/v3/guides/best-practices-for-integrators/)
 - [`fastify-nextjs`](https://github.com/fastify/fastify-nextjs#readme) plugin for next.js (SSR) with Fastify.
 - [`dayjs`](https://github.com/iamkun/dayjs#readme) Fast 2kB alternative to Moment.js with the same modern API
-- Code quality ([`eslint`](https://eslint.org/))
-- Code format [Prettier](https://prettier.io/)
+- Code quality ([`eslint`](https://eslint.org/)).
+- Code format [Prettier](https://prettier.io/).
+- Prevent Bad commit, push using [husky](https://github.com/typicode/husky) and running linter before that for enforce code style using [lint-staged](https://www.npmjs.com/package/lint-staged).
 
 ## Improvement needs
 
